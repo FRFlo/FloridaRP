@@ -1,0 +1,4 @@
+# Caches, Logs, et Fichiers temporaires
+cache/
+logs/
+tmp/
