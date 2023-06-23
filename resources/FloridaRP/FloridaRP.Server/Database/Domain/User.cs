@@ -127,14 +127,7 @@ namespace FloridaRP.Server.Database.Domain
             return default;
         }
 
-        private static async Task<User> OnInsertUserAsync(string lastName)
-        {
-            DynamicParameters dynamicParameters = new DynamicParameters();
-            dynamicParameters.Add("pLastName", lastName);
-
-            return await Dapper<User>.GetSingleAsync("call insUser(@pLastName);", dynamicParameters);
-        }
-
+        #region Private methods
         private async Task OnInsertTokenAsync(string token)
         {
             DynamicParameters dynamicParameters = new();
@@ -176,6 +169,15 @@ namespace FloridaRP.Server.Database.Domain
 
             return await Dapper<User>.GetSingleAsync("call selUserByToken(@pTokens);", dynamicParameters);
         }
+
+        private static async Task<User> OnInsertUserAsync(string Name)
+        {
+            DynamicParameters dynamicParameters = new();
+            dynamicParameters.Add("pName", Name);
+
+            return await Dapper<User>.GetSingleAsync("call insUser(@pName);", dynamicParameters);
+        }
+        #endregion
 
         public override string ToString()
         {
