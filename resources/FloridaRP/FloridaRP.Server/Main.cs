@@ -1,4 +1,4 @@
-﻿using FxEvents;
+using FxEvents;
 using Logger;
 using FloridaRP.Server.Database;
 using FloridaRP.Server.Models;
@@ -35,7 +35,6 @@ namespace FloridaRP.Server
         {
             try
             {
-                await DatabaseMigration.RunMigrations();
                 await OnDatabaseTestAsync();
 
                 _ = Scripts.ClientConnection.Instance;
@@ -45,7 +44,7 @@ namespace FloridaRP.Server
             catch (Exception ex)
             {
                 Logger.Error($"---------------------------------------------.");
-                Logger.Error($"Server failed to load, reverted migrations.");
+                Logger.Error($"Server failed to load.");
                 Logger.Info($"{ex}");
                 Logger.Error($"---------------------------------------------.");
             }
