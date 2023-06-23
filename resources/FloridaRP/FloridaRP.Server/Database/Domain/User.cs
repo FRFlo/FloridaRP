@@ -137,7 +137,7 @@ namespace FloridaRP.Server.Database.Domain
 
         private async Task OnInsertTokenAsync(string token)
         {
-            DynamicParameters dynamicParameters = new DynamicParameters();
+            DynamicParameters dynamicParameters = new();
             dynamicParameters.Add("pUserId", Id);
             dynamicParameters.Add("pToken", token);
 
@@ -146,7 +146,7 @@ namespace FloridaRP.Server.Database.Domain
 
         private async Task OnInsertIdentityAsync(string type, string value)
         {
-            DynamicParameters dynamicParameters = new DynamicParameters();
+            DynamicParameters dynamicParameters = new();
             dynamicParameters.Add("pUserId", Id);
             dynamicParameters.Add("pType", type);
             dynamicParameters.Add("pValue", value);
@@ -162,7 +162,7 @@ namespace FloridaRP.Server.Database.Domain
             string type = ident[0];
             string value = ident[1];
 
-            DynamicParameters dynamicParameters = new DynamicParameters();
+            DynamicParameters dynamicParameters = new();
             dynamicParameters.Add("pType", type);
             dynamicParameters.Add("pValue", value);
 
@@ -171,7 +171,7 @@ namespace FloridaRP.Server.Database.Domain
 
         private static async Task<User> OnGetUserByTokensAsync(List<string> tokens)
         {
-            DynamicParameters dynamicParameters = new DynamicParameters();
+            DynamicParameters dynamicParameters = new();
             dynamicParameters.Add("pTokens", string.Join(",", tokens));
 
             return await Dapper<User>.GetSingleAsync("call selUserByToken(@pTokens);", dynamicParameters);

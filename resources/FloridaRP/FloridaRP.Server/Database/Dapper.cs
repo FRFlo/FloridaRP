@@ -11,12 +11,10 @@ namespace FloridaRP.Server.Database
             var watch = Stopwatch.StartNew();
             try
             {
-                using (var conn = new MySqlConnection(DatabaseConfiguration.ConnectionString()))
-                {
-                    SetupTypeMap();
+                using var conn = new MySqlConnection(DatabaseConfiguration.ConnectionString());
+                SetupTypeMap();
 
-                    return (await conn.QueryAsync<T>(query, args)).AsList();
-                }
+                return (await conn.QueryAsync<T>(query, args)).AsList();
             }
             catch (Exception ex)
             {
@@ -34,11 +32,9 @@ namespace FloridaRP.Server.Database
             var watch = Stopwatch.StartNew();
             try
             {
-                using (var conn = new MySqlConnection(DatabaseConfiguration.ConnectionString()))
-                {
-                    SetupTypeMap();
-                    return (await conn.QueryAsync<T>(query, args)).FirstOrDefault();
-                }
+                using var conn = new MySqlConnection(DatabaseConfiguration.ConnectionString());
+                SetupTypeMap();
+                return (await conn.QueryAsync<T>(query, args)).FirstOrDefault();
             }
             catch (Exception ex)
             {
@@ -56,10 +52,8 @@ namespace FloridaRP.Server.Database
             var watch = Stopwatch.StartNew();
             try
             {
-                using (var conn = new MySqlConnection(DatabaseConfiguration.ConnectionString()))
-                {
-                    return await conn.ExecuteAsync(query, args) > 0;
-                }
+                using var conn = new MySqlConnection(DatabaseConfiguration.ConnectionString());
+                return await conn.ExecuteAsync(query, args) > 0;
             }
             catch (Exception ex)
             {
