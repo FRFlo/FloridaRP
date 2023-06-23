@@ -1,9 +1,10 @@
-using FxEvents;
+﻿using FxEvents;
 using Logger;
 using FloridaRP.Server.Database;
 using FloridaRP.Server.Models;
 using FloridaRP.Shared;
 using System.Collections.Concurrent;
+using FloridaRP.Server.Database.Domain;
 
 namespace FloridaRP.Server
 {
