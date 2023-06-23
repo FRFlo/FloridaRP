@@ -2,3 +2,7 @@
 cache/
 logs/
 tmp/
+
+# Artifacts
+artifacts/**/*
+!artifacts/.gitkeep
