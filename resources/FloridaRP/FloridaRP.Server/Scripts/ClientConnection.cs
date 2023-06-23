@@ -1,4 +1,4 @@
-﻿using FxEvents;
+using FxEvents;
 using FxEvents.Shared.TypeExtensions;
 using FloridaRP.Server.Database.Domain;
 using FloridaRP.Server.Models;
@@ -34,7 +34,7 @@ namespace FloridaRP.Server.Scripts
         {
             // example of using the players information from the Active Session
             Logger.Debug($"Player {session.Player.Name} pinged the server.");
-            Logger.Debug($"Players last name: {session.Session.User.LastName}.");
+            Logger.Debug($"Players name: {session.Session.User.Name}.");
             // example of getting a ping response from the client
             string result = await EventDispatcher.Get<string>(session.Player, "client:ping");
             Logger.Debug($"Server pinged player '{session.Player.Name}' got result '{result}'.");
