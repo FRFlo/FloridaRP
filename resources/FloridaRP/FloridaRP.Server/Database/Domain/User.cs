@@ -1,4 +1,4 @@
-﻿using Dapper;
+using Dapper;
 using FxEvents.Shared;
 
 namespace FloridaRP.Server.Database.Domain
@@ -7,9 +7,11 @@ namespace FloridaRP.Server.Database.Domain
     {
         [Description("id")]
         public int Id { get; private set; }
+        [Description("name")]
+        public string Name { get; private set; }
 
-        [Description("last_name")]
-        public string LastName { get; private set; }
+        [Description("character")]
+        public Character Character { get; private set; }
 
         [Description("created")]
         public DateTime Created { get; private set; }
@@ -51,49 +53,49 @@ namespace FloridaRP.Server.Database.Domain
             User user = await OnGetUserByIdentityAsync(fivem);
             if (user is not null)
             {
-                Main.Logger.Debug($"Found user {user.LastName} by fivem identifier.");
+                Main.Logger.Debug($"Found user {user.Name} by fivem identifier.");
                 return user;
             }
             // find user using steam identifier
             user = await OnGetUserByIdentityAsync(steam);
             if (user is not null)
             {
-                Main.Logger.Debug($"Found user {user.LastName} by steam identifier.");
+                Main.Logger.Debug($"Found user {user.Name} by steam identifier.");
                 return user;
             }
             // find user using discord identifier
             user = await OnGetUserByIdentityAsync(discord);
             if (user is not null)
             {
-                Main.Logger.Debug($"Found user {user.LastName} by discord identifier.");
+                Main.Logger.Debug($"Found user {user.Name} by discord identifier.");
                 return user;
             }
             // find user using license2 identifier
             user = await OnGetUserByIdentityAsync(license2);
             if (user is not null)
             {
-                Main.Logger.Debug($"Found user {user.LastName} by license2 identifier.");
+                Main.Logger.Debug($"Found user {user.Name} by license2 identifier.");
                 return user;
             }
             // find user using license identifier
             user = await OnGetUserByIdentityAsync(license);
             if (user is not null)
             {
-                Main.Logger.Debug($"Found user {user.LastName} by license identifier.");
+                Main.Logger.Debug($"Found user {user.Name} by license identifier.");
                 return user;
             }
             // find user using xbl identifier
             user = await OnGetUserByIdentityAsync(xbl);
             if (user is not null)
             {
-                Main.Logger.Debug($"Found user {user.LastName} by xbl identifier.");
+                Main.Logger.Debug($"Found user {user.Name} by xbl identifier.");
                 return user;
             }
             // find user using live identifier
             user = await OnGetUserByIdentityAsync(live);
             if (user is not null)
             {
-                Main.Logger.Debug($"Found user {user.LastName} by live identifier.");
+                Main.Logger.Debug($"Found user {user.Name} by live identifier.");
                 return user;
             }
 
@@ -101,7 +103,7 @@ namespace FloridaRP.Server.Database.Domain
             user = await OnGetUserByTokensAsync(tokens);
             if (user is not null)
             {
-                Main.Logger.Debug($"Found user {user.LastName} by token.");
+                Main.Logger.Debug($"Found user {user.Name} by token.");
                 return user;
             }
 
