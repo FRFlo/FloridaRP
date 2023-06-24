@@ -8,7 +8,7 @@ using FloridaRP.Client;
 
 namespace FloridaRP.Shared
 {
-    internal class ScriptBase
+    public class ScriptBase
     {
         /// <summary>
         /// FxEvents Logger.

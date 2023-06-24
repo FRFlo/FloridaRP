@@ -4,7 +4,7 @@ using MySqlConnector;
 
 namespace FloridaRP.Server.Database
 {
-    internal class Dapper<T>
+    public class Dapper<T>
     {
         public static async Task<List<T>> GetListAsync(string query, DynamicParameters args = null)
         {

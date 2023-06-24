@@ -1,8 +1,8 @@
-﻿using MySqlConnector;
+﻿using MySql.Data.MySqlClient;
 
 namespace FloridaRP.Server.Database
 {
-    internal class DatabaseConfiguration
+    public class DatabaseConfiguration
     {
         private static string _connectionString;
 

@@ -6,7 +6,7 @@ using FloridaRP.Shared;
 
 namespace FloridaRP.Server.Scripts
 {
-    internal class ClientConnection : ScriptBase
+    public class ClientConnection : ScriptBase
     {
         private static readonly object _padlock = new();
         private static ClientConnection _instance;

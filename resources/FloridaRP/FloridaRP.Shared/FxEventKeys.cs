@@ -1,6 +1,6 @@
 namespace FloridaRP.Shared
 {
-    internal class FxEventKeys
+    public class FxEventKeys
     {
         /*
 		 * Random strings generated from https://passwordsgenerator.net/
