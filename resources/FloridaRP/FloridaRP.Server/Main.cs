@@ -5,6 +5,7 @@ using FloridaRP.Server.Models;
 using FloridaRP.Shared;
 using System.Collections.Concurrent;
 using FloridaRP.Server.Database.Domain;
+using FloridaRP.Server.Scripts;
 
 namespace FloridaRP.Server
 {
@@ -38,7 +39,7 @@ namespace FloridaRP.Server
             {
                 await OnDatabaseTestAsync();
 
-                _ = Scripts.ClientConnection.Instance;
+                _ = ClientConnection.Instance;
 
                 IsReady = true;
             }

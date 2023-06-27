@@ -1,6 +1,7 @@
 ﻿using FxEvents;
 using Logger;
 using FloridaRP.Shared;
+using FloridaRP.Client.Scripts;
 
 namespace FloridaRP.Client
 {
@@ -26,7 +27,7 @@ namespace FloridaRP.Client
 
         private void InitialiseScripts()
         {
-            _ = Scripts.ClientConnection.Instance;
+            _ = ClientConnection.Instance;
         }
 
         /// <summary>
