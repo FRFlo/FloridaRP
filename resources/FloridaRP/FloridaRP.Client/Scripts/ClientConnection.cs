@@ -11,7 +11,6 @@ namespace FloridaRP.Client.Scripts
         private ClientConnection()
         {
             OnStartupAsync();
-            EventDispatcher.Mount("client:ping", new Func<Task<string>>(OnClientPingAsync));
         }
 
         internal static ClientConnection Instance
@@ -25,11 +24,6 @@ namespace FloridaRP.Client.Scripts
             }
         }
 
-        private async Task<string> OnClientPingAsync()
-        {
-            return "pong";
-        }
-
         internal async void OnStartupAsync()
         {
             try
@@ -39,9 +33,6 @@ namespace FloridaRP.Client.Scripts
                     Logger.Info("Connection is active.");
                 else
                     Logger.Info("Connection is not active.");
-
-                string ping = await EventDispatcher.Get<string>("connection:ping");
-                Logger.Info($"Ping: {ping}");
             }
             catch (Exception ex)
             {

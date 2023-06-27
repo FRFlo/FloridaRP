@@ -16,7 +16,6 @@ namespace FloridaRP.Server.Scripts
             AttachEvent("playerConnecting", new Action<Player, string, CallbackDelegate, dynamic>(OnPlayerConnectingAsync));
 
             EventDispatcher.Mount("connection:active", new Func<Player, Task<bool>>(OnConnectionActiveAsync));
-            EventDispatcher.Mount("connection:ping", new Func<EventSource, Task<string>>(OnConnectionPingAsync));
         }
 
         internal static ClientConnection Instance
@@ -30,25 +29,11 @@ namespace FloridaRP.Server.Scripts
             }
         }
 
-        private async Task<string> OnConnectionPingAsync([FromSource] EventSource session)
-        {
-            // example of using the players information from the Active Session
-            Logger.Debug($"Player {session.Player.Name} pinged the server.");
-            Logger.Debug($"Players name: {session.Session.User.Name}.");
-            // example of getting a ping response from the client
-            string result = await EventDispatcher.Get<string>(session.Player, "client:ping");
-            Logger.Debug($"Server pinged player '{session.Player.Name}' got result '{result}'.");
-            return "pong";
-        }
-
         private async Task<bool> OnConnectionActiveAsync([FromSource] Player player)
         {
             try
             {
                 Logger.Info($"Player {player.Name} is active.");
-
-                // example of setting a state bag value
-                player.State.Set(StateBagKey.PlayerName, player.Name, true);
 
                 User user = await User.GetUser(player);
 
