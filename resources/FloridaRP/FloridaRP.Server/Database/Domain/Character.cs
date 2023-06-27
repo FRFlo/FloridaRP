@@ -1,4 +1,5 @@
-﻿using FxEvents.Shared;
+using Dapper;
+using FxEvents.Shared;
 
 namespace FloridaRP.Server.Database.Domain
 {
@@ -20,6 +21,14 @@ namespace FloridaRP.Server.Database.Domain
         public int JobGrade { get; private set; }
         [Description("accounts")]
         public Account[] Accounts { get; private set; }
+
+        public static Task<Character> GetCharacter(int characterId)
+        {
+            DynamicParameters dynamicParameters = new();
+            dynamicParameters.Add("pId", characterId);
+
+            return Dapper<Character>.GetSingleAsync("call selCharacterById(@pId);", dynamicParameters);
+        }
 
         public override string ToString()
         {
