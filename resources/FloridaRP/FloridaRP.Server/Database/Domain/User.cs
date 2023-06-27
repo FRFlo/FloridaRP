@@ -136,6 +136,14 @@ namespace FloridaRP.Server.Database.Domain
             return default;
         }
 
+        public static async Task<User> GetUser(int userId)
+        {
+            DynamicParameters dynamicParameters = new();
+            dynamicParameters.Add("pUserId", userId);
+
+            return await Dapper<User>.GetSingleAsync("call selUserById(@pUserId);", dynamicParameters);
+        }
+
         #region Private methods
         private async Task OnInsertTokenAsync(string token)
         {
