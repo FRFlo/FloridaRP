@@ -5,7 +5,8 @@ namespace FloridaRP.Server.Database.Domain
     public enum OwnerType
     {
         User,
-        Company
+        Company,
+        None
     }
     public class Account
     {
