@@ -1,0 +1,1 @@
+spawnpoint 'mp_m_avongoon' { x = -205.0932, y = -810.525, z = 29.454 }
