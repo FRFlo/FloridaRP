@@ -1,4 +1,4 @@
-using FxEvents;
+﻿using FxEvents;
 using FxEvents.Shared.TypeExtensions;
 using FloridaRP.Server.Database.Domain;
 using FloridaRP.Server.Models;
@@ -13,8 +13,6 @@ namespace FloridaRP.Server.Scripts
 
         private ClientConnection()
         {
-            AttachEvent("playerConnecting", new Action<Player, string, CallbackDelegate, dynamic>(OnPlayerConnectingAsync));
-
             EventDispatcher.Mount("connection:active", new Func<Player, Task<bool>>(OnConnectionActiveAsync));
         }
 
@@ -51,18 +49,6 @@ namespace FloridaRP.Server.Scripts
                 Logger.Error($"OnConnectionActiveAsync() Exception");
                 return false;
             }
-        }
-
-        private async void OnPlayerConnectingAsync([FromSource] Player player, string playerName, CallbackDelegate kickReason, dynamic deferrals)
-        {
-            deferrals.defer();
-
-            await BaseScript.Delay(100);
-            Logger.Info($"Player {playerName} is connecting.");
-
-            // Get player information from the database
-
-            deferrals.done();
         }
     }
 }
