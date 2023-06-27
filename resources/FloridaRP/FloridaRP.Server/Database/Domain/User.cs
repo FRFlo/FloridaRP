@@ -19,12 +19,13 @@ namespace FloridaRP.Server.Database.Domain
         [Description("last_seen")]
         public DateTime LastSeen { get; private set; }
 
-        public async Task<Sanction> GetActiveBan()
+        public async Task<Sanction> GetActiveSanction(SanctionType sanctionType)
         {
             DynamicParameters dynamicParameters = new();
             dynamicParameters.Add("pUserId", Id);
+            dynamicParameters.Add("pSanctionType", sanctionType);
 
-            return await Dapper<Sanction>.GetSingleAsync("call selUserActiveBan(@pUserId);", dynamicParameters);
+            return await Dapper<Sanction>.GetSingleAsync("call selUserActiveSanction(@pUserId, @pSanctionType);", dynamicParameters);
         }
 
         public static async Task<User> GetUser(Player player)
