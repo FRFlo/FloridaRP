@@ -14,7 +14,7 @@ namespace FloridaRP.Server.Database.Domain
         [Description("id")]
         public int Id { get; private set; }
         [Description("user")]
-        public User User { get; private set; }
+        public int UserId { get; set; }
         [Description("type")]
         public SanctionType Type { get; private set; }
         [Description("reason")]
@@ -23,6 +23,7 @@ namespace FloridaRP.Server.Database.Domain
         public DateTime Created { get; private set; }
         [Description("expires")]
         public DateTime Expires { get; private set; }
+
         public override string ToString()
         {
             return this.ToJson();

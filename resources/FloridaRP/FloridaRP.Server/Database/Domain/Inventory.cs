@@ -1,4 +1,3 @@
-using Dapper;
 using FxEvents.Shared;
 
 namespace FloridaRP.Server.Database.Domain
@@ -10,7 +9,7 @@ namespace FloridaRP.Server.Database.Domain
         [Description("type")]
         public string Type { get; private set; }
         [Description("owner")]
-        public Character Owner { get; private set; }
+        public int OwnerId { get; private set; }
         [Description("source")]
         public int Source { get; private set; }
         [Description("slots")]

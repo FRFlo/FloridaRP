@@ -1,4 +1,4 @@
-using Dapper;
+﻿using Dapper;
 using FxEvents.Shared;
 
 namespace FloridaRP.Server.Database.Domain
@@ -8,7 +8,7 @@ namespace FloridaRP.Server.Database.Domain
         [Description("id")]
         public int Id { get; private set; }
         [Description("owner")]
-        public User Owner { get; private set; }
+        public int OwnerId { get; set; }
         [Description("firstname")]
         public string FirstName { get; private set; }
         [Description("lastname")]

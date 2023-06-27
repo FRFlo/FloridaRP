@@ -11,7 +11,7 @@ namespace FloridaRP.Server.Database.Domain
         public string Name { get; private set; }
 
         [Description("character")]
-        public Character Character { get; private set; }
+        public int CharacterId { get; set; }
 
         [Description("created")]
         public DateTime Created { get; private set; }
