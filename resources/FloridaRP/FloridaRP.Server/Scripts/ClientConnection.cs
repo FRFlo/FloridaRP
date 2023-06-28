@@ -1,8 +1,8 @@
-﻿using FxEvents;
-using FxEvents.Shared.TypeExtensions;
-using FloridaRP.Server.Database.Domain;
+﻿using FloridaRP.Server.Database.Domain;
 using FloridaRP.Server.Models;
 using FloridaRP.Shared;
+using FxEvents;
+using FxEvents.Shared.TypeExtensions;
 
 namespace FloridaRP.Server.Scripts
 {

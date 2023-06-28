@@ -1,5 +1,5 @@
-﻿using FxEvents;
-using FloridaRP.Shared;
+﻿using FloridaRP.Shared;
+using FxEvents;
 
 namespace FloridaRP.Client.Scripts
 {

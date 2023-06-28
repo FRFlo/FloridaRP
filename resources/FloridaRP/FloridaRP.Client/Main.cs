@@ -1,7 +1,7 @@
-﻿using FxEvents;
-using Logger;
+﻿using FloridaRP.Client.Scripts;
 using FloridaRP.Shared;
-using FloridaRP.Client.Scripts;
+using FxEvents;
+using Logger;
 
 namespace FloridaRP.Client
 {
