@@ -5,9 +5,15 @@ VisualStudioVersion = 17.6.33801.468
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FloridaRP.Server", "FloridaRP.Server\FloridaRP.Server.csproj", "{07109724-82C2-4B39-AA37-8240A6BCC11A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FloridaRP.Client", "FloridaRP.Client\FloridaRP.Client.csproj", "{9506F7BA-0E8E-44BA-B6FA-F1BA0D502C42}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "FloridaRP.Client", "FloridaRP.Client\FloridaRP.Client.csproj", "{9506F7BA-0E8E-44BA-B6FA-F1BA0D502C42}"
 EndProject
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "FloridaRP.Shared", "FloridaRP.Shared\FloridaRP.Shared.shproj", "{DB4692FD-CE3C-4633-A760-0233927569E0}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "resources", "resources", "{9A297773-3118-49EF-BB65-F046DCFA0AA8}"
+	ProjectSection(SolutionItems) = preProject
+		config.json = config.json
+		example-config.json = example-config.json
+	EndProjectSection
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
