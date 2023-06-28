@@ -9,11 +9,13 @@ namespace FloridaRP.Server.Database.Domain
         [Description("name")]
         public string Name { get; private set; }
         [Description("owner")]
-        public int Owner { get; private set; }
+        public int OwnerId { get; private set; }
         [Description("created")]
         public DateTime Created { get; private set; }
         [Description("last_seen")]
         public DateTime LastSeen { get; private set; }
+
+        public async Task<User> GetOwnerAsync() => await User.GetUser(OwnerId);
 
         public override string ToString()
         {

@@ -19,6 +19,8 @@ namespace FloridaRP.Server.Database.Domain
         [Description("last_seen")]
         public DateTime LastSeen { get; private set; }
 
+        public async Task<Character> GetCharacterAsync() => await Character.GetCharacter(CharacterId);
+
         public async Task<Sanction> GetActiveSanction(SanctionType sanctionType)
         {
             DynamicParameters dynamicParameters = new();

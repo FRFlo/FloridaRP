@@ -24,6 +24,8 @@ namespace FloridaRP.Server.Database.Domain
         [Description("expires")]
         public DateTime Expires { get; private set; }
 
+        public async Task<User> GetUserAsync() => await User.GetUser(UserId);
+
         public override string ToString()
         {
             return this.ToJson();

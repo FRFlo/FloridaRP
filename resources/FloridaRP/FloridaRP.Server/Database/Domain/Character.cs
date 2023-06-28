@@ -22,6 +22,8 @@ namespace FloridaRP.Server.Database.Domain
         [Description("accounts")]
         public Account[] Accounts { get; private set; }
 
+        public async Task<User> GetOwnerAsync() => await User.GetUser(OwnerId);
+
         public static Task<Character> GetCharacter(int characterId)
         {
             DynamicParameters dynamicParameters = new();
